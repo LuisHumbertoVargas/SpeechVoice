@@ -39,29 +39,52 @@
                 height: 200px;
                 overflow-y: scroll;
             }
+            .container {
+                margin-top: 60px;
+            }
         </style>
     </head>
-    <body>
-        <!-- Div que contiene el icono animado -->
-        <div id="icon-container">
-            <!-- Añadimos las clases necesarias para la animación -->
-            <i
-                class="animate__animated animate__heartBeat animate__infinite"
-            ></i>
+    <body class="bg-dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Speech Voice Recognition</h1>
+                        </div>
+                        <div class="card-body">
+                            <!-- Div que contiene el icono animado -->
+                            <div id="icon-container">
+                                <!-- Añadimos las clases necesarias para la animación -->
+                                <i
+                                    class="animate__animated animate__heartBeat animate__infinite"
+                                ></i>
+                            </div>
+                            <!-- Botón para iniciar la grabación de voz -->
+                            <button
+                                id="start-btn"
+                                class="btn btn-md btn-primary"
+                            >
+                                On
+                            </button>
+                            <!-- Div que contiene el texto generado por el reconocimiento de voz -->
+                            <div class="text-dark" id="output"></div>
+                            <br />
+                            <button
+                                id="generarPDF"
+                                class="btn btn-md btn-success"
+                            >
+                                Generar PDF
+                            </button>
+                            <div id="textoGenerado"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- Botón para iniciar la grabación de voz -->
-        <button id="start-btn" class="btn btn-md btn-primary">On</button>
-        <!-- Div que contiene el texto generado por el reconocimiento de voz -->
-        <div id="output"></div>
-        <br />
-        <button id="generarPDF" class="btn btn-md btn-success">
-            Generar PDF
-        </button>
-        <div id="textoGenerado"></div>
 
         <!-- Script que contiene el código JavaScript -->
         <script src="./SpeechRecognition.js"></script>
-        <!-- <script src="./generarPDF.js"></script> -->
         <script src="./generarPDF.js"></script>
     </body>
 </html>

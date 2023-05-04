@@ -1,7 +1,7 @@
 // Configurar jsPDF y agregar evento de click al botón
 window.addEventListener('load', function () {
     const generarPDF = () => {
-        this.alert('Próximamente...');
+        this.alert('Todo quieres...');
         // // Crear un nuevo objeto jsPDF
         // const doc = new jsPDF();
 
