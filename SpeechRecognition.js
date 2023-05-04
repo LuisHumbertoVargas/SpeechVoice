@@ -15,22 +15,35 @@ startBtn.addEventListener('click', () => {
     iconContainer.classList.add('animate__heartBeat');
 });
 
-// Evento que se dispara cuando hay resultados en la grabación de voz
+// // Evento que se dispara cuando hay resultados en la grabación de voz
+// recognition.onresult = (event) => {
+//     // Obtenemos el último elemento p del contenedor de salida
+//     const lastP = output.querySelector('p:last-of-type');
+//     // Recorremos los resultados y creamos nuevos elementos para cada parte de la transcripción
+//     for (const result of event.results) {
+//         const text = result[0].transcript;
+//         const p = document.createElement('p');
+//         p.id = `result-${Date.now()}`; // Generamos un ID único para cada elemento
+//         p.textContent = text;
+//         // Si ya existe un último elemento p, eliminamos su contenido antes de agregar el nuevo elemento p
+//         if (lastP) {
+//             output.innerHTML = '';
+//         }
+//         output.appendChild(p);
+//     }
+// };
+
 recognition.onresult = (event) => {
-    // Obtenemos el último elemento p del contenedor de salida
-    const lastP = output.querySelector('p:last-of-type');
-    // Recorremos los resultados y creamos nuevos elementos para cada parte de la transcripción
-    for (const result of event.results) {
-        const text = result[0].transcript;
-        const p = document.createElement('p');
-        p.id = `result-${Date.now()}`; // Generamos un ID único para cada elemento
-        p.textContent = text;
-        // Si ya existe un último elemento p, eliminamos su contenido antes de agregar el nuevo elemento p
-        if (lastP) {
-            output.innerHTML = '';
-        }
-        output.appendChild(p);
-    }
+    // Obtenemos el último resultado de la grabación
+    const result = event.results[event.results.length - 1];
+    // Obtenemos el texto del resultado
+    const text = result[0].transcript;
+    // Creamos un nuevo elemento "p" para el nuevo texto
+    const newP = document.createElement('p');
+    // Agregamos el texto al nuevo elemento "p"
+    newP.textContent = text;
+    // Agregamos el nuevo elemento "p" al final del div de salida de texto
+    output.appendChild(newP);
 };
 
 // Evento que se dispara cuando se detiene la grabación de voz
